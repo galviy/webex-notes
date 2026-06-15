@@ -1,0 +1,1 @@
+# shitty useless notes
