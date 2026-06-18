@@ -69,7 +69,37 @@
    exploit
   -  `<img src=x onerror=alert(1)>`
   - `<svg onload=alert(1)>`
-     
+ 
+  ## 3. .attr("href") sink
+  
+  Contoh source code yang vuln
+
+  ```js
+    $(function() {
+        $('#backLink').attr("href", 
+            (new URLSearchParams(window.location.search)).get('returnPath')
+        );
+    });
+  ```
+  
+  ```html
+  <a id="backLink" href="/idi">Back</a>
+  ```
+  
+  Atribut href pada tag tautan (<a>) dapat menerima skema protokol javascript:. Jika penyerang memanipulasi parameter URL, mereka bisa menyuntikkan kode JavaScript yang akan langsung dieksekus ketika pengguna mengklik tombol "Back" tersebut.
+
+  Hasilnya di DOM
+    ```html
+    <!-- Sebelum -->
+    <a id="backLink" href="">Back</a>
+    
+    <!-- Sesudah, misal ?returnPath=/home -->
+    <a id="backLink" href="/home">Back</a>
+    ```
+
+  Exploit:
+  - `javascript:alert(document.cookie)`
+  - 
 # 3. Stored XSS
 
 # 4. Reflected XSS
