@@ -8,14 +8,19 @@
      ```html
          <img src="...?searchTerms=INPUT">
      ```
-     Exmploit
+     exploit
+    - ` "><svg onload=alert(1)>`
+    - `" onload="alert()`
       
   ## 2. innerHTML sink
+  
   Contoh source code:
-      ```html
-        <div id="searchMessage">INPUT</div>
-      ```
-
+   ```html
+    <div id="searchMessage">INPUT</div>
+   ```
+   exploit
+  -  `<img src=x onerror=alert(1)>`
+  - `<svg onload=alert(1)>`
      
 # 3. Stored XSS
 
