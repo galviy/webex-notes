@@ -11,7 +11,19 @@
      exploit
     - ` "><svg onload=alert(1)>`
     - `" onload="alert()`
-      
+
+    Contoh Vuln pada javascript
+  ```js
+  function trackSearch(query) {
+       document.write('<img src="/resources/images/tracker.gif?searchTerms='+query+'">');
+  }
+  var query = (new URLSearchParams(window.location.search)).get('search');
+   if(query) {
+      trackSearch(query);
+  }
+                    
+  ```
+  
   ## 2. innerHTML sink
   
   Contoh source code:
