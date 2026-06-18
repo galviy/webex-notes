@@ -3,6 +3,7 @@
 # 2. DOM XSS
 - DOM XSS Tergantung pada sink nya
   ## 1. document.write sink
+  memanfaatkan unsanitized query pada searching yang memungkan attacker melakukan penitupan atribut src pada tag <img> dan menyisipkan fungsi berbahaya (event handler).
       
      Contoh source code:
      ```html
