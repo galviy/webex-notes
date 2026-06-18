@@ -43,11 +43,22 @@
   atau gunakan `encodeURIComponent` jika terpaksa menggunakan document.write
   
   ## 2. innerHTML sink
+  Properti .innerHTML akan execute string apa pun yang dimasukkan ke dalamnya sebagai kode HTML. Jika attacker mengirim teks yang mengandung tag <script> atau elemen HTML dengan event handler          berbahaya, browser korban akan langsung mengeksekusinya.
   
   Contoh source code:
    ```html
     <div id="searchMessage">INPUT</div>
    ```
+    ```js
+     function doSearchQuery(query) {
+        document.getElementById('searchMessage').innerHTML = query;
+     }
+    var query = (new URLSearchParams(window.location.search)).get('search');
+    if(query) {
+         doSearchQuery(query);
+    }                
+    ```
+    
    exploit
   -  `<img src=x onerror=alert(1)>`
   - `<svg onload=alert(1)>`
