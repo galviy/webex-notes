@@ -3,7 +3,7 @@
 # 2. DOM XSS
 - DOM XSS Tergantung pada sink nya
   ## 1. document.write sink
-  
+      
      Contoh source code:
      ```html
          <img src="...?searchTerms=INPUT">
@@ -13,6 +13,7 @@
     - `" onload="alert()`
 
     Contoh Vuln pada javascript
+  
   ```js
   function trackSearch(query) {
        document.write('<img src="/resources/images/tracker.gif?searchTerms='+query+'">');
@@ -20,9 +21,25 @@
   var query = (new URLSearchParams(window.location.search)).get('search');
    if(query) {
       trackSearch(query);
-  }
-                    
+  }   
   ```
+  
+  `document.write('<img src="/resources/images/tracker.gif?searchTerms='+query+'">');`
+   Menerima Teks Mentah: document.write akan mengambil string apa pun di dalamnya dan langsung menerjemahkannya sebagai kode HTML aktif di browser
+
+  patching
+
+  ```js
+  function trackSearch(query) {
+
+    const img = document.createElement('img');
+    
+    img.src = '/resources/images/tracker.gif?searchTerms=' + encodeURIComponent(query);
+    
+    document.body.appendChild(img);
+  }
+  ```
+  atau gunakan `encodeURIComponent` jika terpaksa menggunakan document.write
   
   ## 2. innerHTML sink
   
