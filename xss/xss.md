@@ -58,6 +58,14 @@
          doSearchQuery(query);
     }                
     ```
+
+  contoh patch:
+    ```js
+    function doSearchQuery(query) {
+
+    document.getElementById('searchMessage').textContent = query;
+    }
+    ```
     
    exploit
   -  `<img src=x onerror=alert(1)>`
