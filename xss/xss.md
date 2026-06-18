@@ -7,7 +7,7 @@
       
      Contoh source code:
      ```html
-         <img src="...?searchTerms=INPUT">
+     <img src="...?searchTerms=INPUT">
      ```
      exploit
     - ` "><svg onload=alert(1)>`
@@ -47,10 +47,10 @@
   
   Contoh source code:
    ```html
-    <div id="searchMessage">INPUT</div>
+   <div id="searchMessage">INPUT</div>
    ```
     ```js
-     function doSearchQuery(query) {
+    function doSearchQuery(query) {
         document.getElementById('searchMessage').innerHTML = query;
      }
     var query = (new URLSearchParams(window.location.search)).get('search');
