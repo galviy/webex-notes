@@ -99,7 +99,17 @@
 
   Exploit:
   - `javascript:alert(document.cookie)`
-  - 
+
+  ## 4. jQuery sink
+  Penyebab utamanya adalah penggunaan fungsi selektor $() (atau jQuery()) sebagai Sink yang dipadukan dengan data mentah dari window.location.hash sebagai Source.
+  ```js
+     <script>
+      $(window).on('hashchange', function(){
+          var post = $('section.blog-list h2:contains(' + decodeURIComponent(window.location.hash.slice(1)) + ')');
+          if (post) post.get(0).scrollIntoView();
+      });
+    </script>
+  ```
 # 3. Stored XSS
 
 # 4. Reflected XSS
